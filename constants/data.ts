@@ -1,0 +1,28 @@
+
+import { Department, Doctor, NewsArticle } from '../types';
+
+export const DEPARTMENTS: Department[] = [
+  { name: 'Cardiology', description: 'Expert care for heart and vascular diseases.', icon: 'HeartPulse' },
+  { name: 'Pediatrics', description: 'Comprehensive healthcare for children from birth to adolescence.', icon: 'Baby' },
+  { name: 'Surgery', description: 'Advanced surgical procedures with state-of-the-art technology.', icon: 'Scissors' },
+  { name: 'Radiology', description: 'High-quality diagnostic imaging services.', icon: 'Radiation' },
+  { name: 'Neurology', description: 'Treating disorders of the nervous system.', icon: 'BrainCircuit' },
+  { name: 'Oncology', description: 'Dedicated cancer treatment and patient support.', icon: 'Ribbon' },
+  { name: 'Orthopedics', description: 'Specialized care for bones, joints, and muscles.', icon: 'Bone' },
+  { name: 'Emergency', description: '24/7 critical care for urgent medical needs.', icon: 'Siren' },
+];
+
+export const DOCTORS: Doctor[] = [
+  { id: 1, name: 'Dr. Aisha Khan', specialty: 'Cardiologist', photo_url: 'https://picsum.photos/id/1005/300/300', available_days: ['Monday', 'Wednesday', 'Friday'] },
+  { id: 2, name: 'Dr. Bilal Ahmed', specialty: 'Pediatrician', photo_url: 'https://picsum.photos/id/1011/300/300', available_days: ['Tuesday', 'Thursday'] },
+  { id: 3, name: 'Dr. Fatima Ali', specialty: 'General Surgeon', photo_url: 'https://picsum.photos/id/1027/300/300', available_days: ['Monday', 'Tuesday', 'Thursday'] },
+  { id: 4, name: 'Dr. Usman Tariq', specialty: 'Neurologist', photo_url: 'https://picsum.photos/id/1012/300/300', available_days: ['Wednesday', 'Friday'] },
+  { id: 5, name: 'Dr. Sana Javed', specialty: 'Oncologist', photo_url: 'https://picsum.photos/id/10/300/300', available_days: ['Tuesday', 'Thursday'] },
+  { id: 6, name: 'Dr. Hassan Raza', specialty: 'Orthopedic Surgeon', photo_url: 'https://picsum.photos/id/1025/300/300', available_days: ['Monday', 'Wednesday'] },
+];
+
+export const NEWS: NewsArticle[] = [
+  { id: 1, title: 'Free Health Camp Announced for Next Month', excerpt: 'Turbat Civil Hospital is proud to announce a free health check-up camp for all residents on the 15th of next month.', date: 'October 26, 2023', imageUrl: 'https://picsum.photos/id/23/600/400' },
+  { id: 2, title: 'New Pediatric Wing Inaugurated', excerpt: 'Our new state-of-the-art pediatric wing is now open, providing specialized care for our youngest patients.', date: 'October 15, 2023', imageUrl: 'https://picsum.photos/id/34/600/400' },
+  { id: 3, title: 'Public Health Awareness Seminar on Diabetes', excerpt: 'Join us for an informative seminar on managing and preventing diabetes, led by our top endocrinologists.', date: 'September 30, 2023', imageUrl: 'https://picsum.photos/id/45/600/400' },
+];
