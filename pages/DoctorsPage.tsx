@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase, supabaseUrl } from '../services/supabaseClient';
-import { DOCTORS as mockDoctors } from '../constants/data';
+import { DOCTORS as mockDoctors, DEPARTMENTS } from '../constants/data';
 import { Doctor } from '../types';
 import { useAnimated } from '../hooks/useAnimated';
 
@@ -38,6 +37,8 @@ const DoctorCard: React.FC<{ doctor: Doctor, index: number }> = ({ doctor, index
 
 const DoctorsPage: React.FC = () => {
     const [doctors, setDoctors] = useState<Doctor[]>([]);
+    const [filteredDoctors, setFilteredDoctors] = useState<Doctor[]>([]);
+    const [selectedDepartment, setSelectedDepartment] = useState('All');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -66,6 +67,22 @@ const DoctorsPage: React.FC = () => {
         fetchDoctors();
     }, []);
 
+    useEffect(() => {
+        if (selectedDepartment === 'All') {
+            setFilteredDoctors(doctors);
+        } else {
+            // This logic attempts to match specialties (e.g., "Cardiologist") with departments (e.g., "Cardiology").
+            const departmentSingular = selectedDepartment.endsWith('s')
+                ? selectedDepartment.slice(0, -1).toLowerCase()
+                : selectedDepartment.toLowerCase();
+            
+            const filtered = doctors.filter(doctor => 
+                doctor.specialty.toLowerCase().includes(departmentSingular)
+            );
+            setFilteredDoctors(filtered);
+        }
+    }, [selectedDepartment, doctors]);
+
     return (
         <div>
             <PageHeader title="Find a Doctor" subtitle="Our Team of Dedicated Medical Professionals" />
@@ -74,11 +91,36 @@ const DoctorsPage: React.FC = () => {
                     {loading && <p className="text-center text-lg">Loading doctors...</p>}
                     {error && <p className="text-center text-red-500 bg-red-100 p-4 rounded-md mb-8">{error}</p>}
                     {!loading && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {doctors.map((doctor, index) => (
-                                <DoctorCard key={doctor.id} doctor={doctor} index={index} />
-                            ))}
-                        </div>
+                        <>
+                            <div className="mb-12 max-w-md mx-auto">
+                                <label htmlFor="department-filter" className="block text-lg font-semibold text-primary-dark mb-2 text-center">
+                                    Filter by Department
+                                </label>
+                                <select
+                                    id="department-filter"
+                                    value={selectedDepartment}
+                                    onChange={(e) => setSelectedDepartment(e.target.value)}
+                                    className="w-full px-4 py-3 border border-slate-300 bg-white rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-light transition-all"
+                                >
+                                    <option value="All">All Departments</option>
+                                    {DEPARTMENTS.map(dept => (
+                                        <option key={dept.name} value={dept.name}>{dept.name}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            
+                            {filteredDoctors.length > 0 ? (
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                    {filteredDoctors.map((doctor, index) => (
+                                        <DoctorCard key={doctor.id} doctor={doctor} index={index} />
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="text-center py-16">
+                                    <p className="text-xl text-slate-600">No doctors found for the selected department.</p>
+                                </div>
+                            )}
+                        </>
                     )}
                 </div>
             </div>
