@@ -12,12 +12,12 @@ export const DEPARTMENTS: Department[] = [
 ];
 
 export const DOCTORS: Doctor[] = [
-  { id: 1, name: 'Dr. Aisha Khan', specialty: 'Cardiologist', photo_url: 'https://picsum.photos/id/342/300/300', available_days: ['Monday', 'Wednesday', 'Friday'], availability_time: '10:00 AM - 1:00 PM' },
-  { id: 2, name: 'Dr. Bilal Ahmed', specialty: 'Pediatrician', photo_url: 'https://picsum.photos/id/338/300/300', available_days: ['Tuesday', 'Thursday'], availability_time: '9:00 AM - 12:00 PM' },
-  { id: 3, name: 'Dr. Fatima Ali', specialty: 'General Surgeon', photo_url: 'https://picsum.photos/id/326/300/300', available_days: ['Monday', 'Tuesday', 'Thursday'], availability_time: '2:00 PM - 5:00 PM' },
-  { id: 4, name: 'Dr. Usman Tariq', specialty: 'Neurologist', photo_url: 'https://picsum.photos/id/219/300/300', available_days: ['Wednesday', 'Friday'], availability_time: '11:00 AM - 2:00 PM' },
-  { id: 5, name: 'Dr. Sana Javed', specialty: 'Oncologist', photo_url: 'https://picsum.photos/id/433/300/300', available_days: ['Tuesday', 'Thursday'], availability_time: '10:00 AM - 4:00 PM' },
-  { id: 6, name: 'Dr. Hassan Raza', specialty: 'Orthopedic Surgeon', photo_url: 'https://picsum.photos/id/447/300/300', available_days: ['Monday', 'Wednesday'], availability_time: '9:00 AM - 1:00 PM' },
+  { id: 1, name: 'Dr. Aisha Khan', specialty: 'Cardiologist', photo_url: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop&q=80', available_days: ['Monday', 'Wednesday', 'Friday'], availability_time: '10:00 AM - 1:00 PM' },
+  { id: 2, name: 'Dr. Bilal Ahmed', specialty: 'Pediatrician', photo_url: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16e?w=300&h=300&fit=crop&q=80', available_days: ['Tuesday', 'Thursday'], availability_time: '9:00 AM - 12:00 PM' },
+  { id: 3, name: 'Dr. Fatima Ali', specialty: 'General Surgeon', photo_url: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=300&h=300&fit=crop&q=80', available_days: ['Monday', 'Tuesday', 'Thursday'], availability_time: '2:00 PM - 5:00 PM' },
+  { id: 4, name: 'Dr. Usman Tariq', specialty: 'Neurologist', photo_url: 'https://images.unsplash.com/photo-1537368910025-70035079f52d?w=300&h=300&fit=crop&q=80', available_days: ['Wednesday', 'Friday'], availability_time: '11:00 AM - 2:00 PM' },
+  { id: 5, name: 'Dr. Sana Javed', specialty: 'Oncologist', photo_url: 'https://images.unsplash.com/photo-1622253692010-33352da6da63?w=300&h=300&fit=crop&q=80', available_days: ['Tuesday', 'Thursday'], availability_time: '10:00 AM - 4:00 PM' },
+  { id: 6, name: 'Dr. Hassan Raza', specialty: 'Orthopedic Surgeon', photo_url: 'https://images.unsplash.com/photo-1618498082410-b4aa22193b38?w=300&h=300&fit=crop&q=80', available_days: ['Monday', 'Wednesday'], availability_time: '9:00 AM - 1:00 PM' },
 ];
 
 export const NEWS: NewsArticle[] = [
