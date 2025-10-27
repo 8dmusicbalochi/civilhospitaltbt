@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase, supabaseUrl } from '../services/supabaseClient';
@@ -24,7 +25,28 @@ const DoctorCard: React.FC<{ doctor: Doctor, index: number }> = ({ doctor, index
                 <h3 className="text-2xl font-bold font-serif text-primary-dark">{doctor.name}</h3>
                 <p className="text-secondary font-semibold text-lg mb-4">{doctor.specialty}</p>
                 <div className="flex-grow">
-                    <p className="text-slate-600"><span className="font-semibold">Available:</span> {doctor.available_days.join(', ')}</p>
+                    <div className="space-y-3">
+                        <div>
+                           <h4 className="text-sm font-semibold text-primary-dark flex items-center">
+                              <i data-lucide="calendar" className="w-4 h-4 mr-2"></i>
+                              Available Days
+                           </h4>
+                           <div className="flex flex-wrap gap-2 mt-2">
+                            {doctor.available_days.map(day => (
+                                <span key={day} className="px-2 py-1 bg-teal-100 text-teal-800 text-xs font-medium rounded-full">{day}</span>
+                            ))}
+                           </div>
+                        </div>
+                        {doctor.availability_time && (
+                          <div>
+                            <h4 className="text-sm font-semibold text-primary-dark flex items-center">
+                               <i data-lucide="clock" className="w-4 h-4 mr-2"></i>
+                               Timings
+                            </h4>
+                            <p className="text-slate-600 text-sm mt-1">{doctor.availability_time}</p>
+                          </div>
+                        )}
+                    </div>
                 </div>
                 <Link to="/appointments" className="mt-6 w-full text-center px-4 py-2 bg-secondary hover:bg-secondary/90 text-white rounded-full font-semibold transition-transform duration-300 hover:scale-105 shadow-md">
                     Book Appointment

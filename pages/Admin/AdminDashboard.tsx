@@ -16,7 +16,7 @@ const AdminDashboard: React.FC<{ setAuth: (isAuth: boolean) => void }> = ({ setA
     const [error, setError] = useState<string | null>(null);
 
     const [showDoctorForm, setShowDoctorForm] = useState(false);
-    const [newDoctor, setNewDoctor] = useState({ name: '', specialty: '', photo_url: '', available_days: '' });
+    const [newDoctor, setNewDoctor] = useState({ name: '', specialty: '', photo_url: '', available_days: '', availability_time: '' });
 
     const fetchData = useCallback(async () => {
         setLoading(true);
@@ -97,7 +97,7 @@ const AdminDashboard: React.FC<{ setAuth: (isAuth: boolean) => void }> = ({ setA
             alert('Doctor added successfully!');
             setDoctors(prev => [...prev, ...(data as Doctor[])]);
             setShowDoctorForm(false);
-            setNewDoctor({ name: '', specialty: '', photo_url: '', available_days: '' });
+            setNewDoctor({ name: '', specialty: '', photo_url: '', available_days: '', availability_time: '' });
         }
     };
 
@@ -133,6 +133,7 @@ const AdminDashboard: React.FC<{ setAuth: (isAuth: boolean) => void }> = ({ setA
                                 <input type="text" placeholder="Specialty" value={newDoctor.specialty} onChange={e => setNewDoctor({...newDoctor, specialty: e.target.value})} className="w-full p-2 border rounded" required />
                                 <input type="text" placeholder="Photo URL" value={newDoctor.photo_url} onChange={e => setNewDoctor({...newDoctor, photo_url: e.target.value})} className="w-full p-2 border rounded" required />
                                 <input type="text" placeholder="Available Days (comma-separated)" value={newDoctor.available_days} onChange={e => setNewDoctor({...newDoctor, available_days: e.target.value})} className="w-full p-2 border rounded" required />
+                                <input type="text" placeholder="Availability Time (e.g., 9 AM - 5 PM)" value={newDoctor.availability_time} onChange={e => setNewDoctor({...newDoctor, availability_time: e.target.value})} className="w-full p-2 border rounded" />
                                 <button type="submit" className="px-4 py-2 bg-green-500 text-white rounded-full hover:bg-green-600">Save Doctor</button>
                             </form>
                         )}

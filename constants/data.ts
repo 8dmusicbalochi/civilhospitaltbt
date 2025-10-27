@@ -13,12 +13,12 @@ export const DEPARTMENTS: Department[] = [
 ];
 
 export const DOCTORS: Doctor[] = [
-  { id: 1, name: 'Dr. Aisha Khan', specialty: 'Cardiologist', photo_url: 'https://picsum.photos/id/1005/300/300', available_days: ['Monday', 'Wednesday', 'Friday'] },
-  { id: 2, name: 'Dr. Bilal Ahmed', specialty: 'Pediatrician', photo_url: 'https://picsum.photos/id/1011/300/300', available_days: ['Tuesday', 'Thursday'] },
-  { id: 3, name: 'Dr. Fatima Ali', specialty: 'General Surgeon', photo_url: 'https://picsum.photos/id/1027/300/300', available_days: ['Monday', 'Tuesday', 'Thursday'] },
-  { id: 4, name: 'Dr. Usman Tariq', specialty: 'Neurologist', photo_url: 'https://picsum.photos/id/1012/300/300', available_days: ['Wednesday', 'Friday'] },
-  { id: 5, name: 'Dr. Sana Javed', specialty: 'Oncologist', photo_url: 'https://picsum.photos/id/10/300/300', available_days: ['Tuesday', 'Thursday'] },
-  { id: 6, name: 'Dr. Hassan Raza', specialty: 'Orthopedic Surgeon', photo_url: 'https://picsum.photos/id/1025/300/300', available_days: ['Monday', 'Wednesday'] },
+  { id: 1, name: 'Dr. Aisha Khan', specialty: 'Cardiologist', photo_url: 'https://picsum.photos/id/1005/300/300', available_days: ['Monday', 'Wednesday', 'Friday'], availability_time: '10:00 AM - 1:00 PM' },
+  { id: 2, name: 'Dr. Bilal Ahmed', specialty: 'Pediatrician', photo_url: 'https://picsum.photos/id/1011/300/300', available_days: ['Tuesday', 'Thursday'], availability_time: '9:00 AM - 12:00 PM' },
+  { id: 3, name: 'Dr. Fatima Ali', specialty: 'General Surgeon', photo_url: 'https://picsum.photos/id/1027/300/300', available_days: ['Monday', 'Tuesday', 'Thursday'], availability_time: '2:00 PM - 5:00 PM' },
+  { id: 4, name: 'Dr. Usman Tariq', specialty: 'Neurologist', photo_url: 'https://picsum.photos/id/1012/300/300', available_days: ['Wednesday', 'Friday'], availability_time: '11:00 AM - 2:00 PM' },
+  { id: 5, name: 'Dr. Sana Javed', specialty: 'Oncologist', photo_url: 'https://picsum.photos/id/10/300/300', available_days: ['Tuesday', 'Thursday'], availability_time: '10:00 AM - 4:00 PM' },
+  { id: 6, name: 'Dr. Hassan Raza', specialty: 'Orthopedic Surgeon', photo_url: 'https://picsum.photos/id/1025/300/300', available_days: ['Monday', 'Wednesday'], availability_time: '9:00 AM - 1:00 PM' },
 ];
 
 export const NEWS: NewsArticle[] = [
