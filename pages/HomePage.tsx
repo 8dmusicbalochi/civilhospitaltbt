@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { DEPARTMENTS, DOCTORS } from '../constants/data';
@@ -74,7 +73,7 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="https://picsum.photos/id/101/800/600" alt="Hospital Building" className="rounded-lg shadow-2xl"/>
+              <img src="https://picsum.photos/id/101/800/600" alt="Hospital Building" className="rounded-lg shadow-2xl" loading="lazy" decoding="async" width="800" height="600"/>
             </div>
             <div>
               <h2 className="text-3xl md:text-4xl font-bold font-serif text-primary-dark mb-4">Welcome to Turbat Civil Hospital</h2>
@@ -100,7 +99,7 @@ const HomePage: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                 {DOCTORS.slice(0,3).map((doctor) => (
                     <div key={doctor.id} className="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                        <img src={doctor.photo_url} alt={doctor.name} className="w-full h-64 object-cover"/>
+                        <img src={doctor.photo_url} alt={doctor.name} className="w-full h-64 object-cover" loading="lazy" decoding="async" width="300" height="300"/>
                         <div className="p-6">
                             <h3 className="text-xl font-bold text-primary-dark">{doctor.name}</h3>
                             <p className="text-secondary font-medium">{doctor.specialty}</p>

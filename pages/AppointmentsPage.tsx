@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { supabase } from '../services/supabaseClient';
+import { supabase, supabaseUrl } from '../services/supabaseClient';
 import { DEPARTMENTS } from '../constants/data';
 import { Appointment } from '../types';
 
@@ -14,7 +14,7 @@ const PageHeader: React.FC<{ title: string; subtitle: string }> = ({ title, subt
 );
 
 const AppointmentsPage: React.FC = () => {
-    const [formData, setFormData] = useState<Appointment>({
+    const [formData, setFormData] = useState<Omit<Appointment, 'id'>>({
         name: '',
         phone: '',
         department: '',
@@ -33,13 +33,21 @@ const AppointmentsPage: React.FC = () => {
         e.preventDefault();
         setStatus('submitting');
         setMessage('');
+        
+        // Prevent submission if using placeholder credentials.
+        if (supabaseUrl === 'https://example.supabase.co') {
+            setStatus('error');
+            setMessage('Database is not configured. Could not save appointment.');
+            console.error('Appointment submission error: Supabase credentials are not set.');
+            return;
+        }
 
         const { data, error } = await supabase.from('appointments').insert([formData]);
 
         if (error) {
             setStatus('error');
             setMessage(`Failed to book appointment: ${error.message}. Please try again.`);
-            console.error(error);
+            console.error('Appointment submission error:', error.message);
         } else {
             setStatus('success');
             setMessage('Your appointment has been successfully booked! We will contact you shortly.');

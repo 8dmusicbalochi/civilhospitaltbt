@@ -30,13 +30,16 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
+    { name: 'Our Services', path: '/services' },
     { name: 'Departments', path: '/departments' },
     { name: 'Doctors', path: '/doctors' },
-    { name: 'News', path: '/news' },
+    { name: 'House Job', path: '/house-job' },
+    { name: 'Tender', path: '/tender' },
+    { name: 'Emails', path: '/emails' },
     { name: 'Contact', path: '/contact' },
   ];
 
-  const linkClasses = "px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300";
+  const linkClasses = "px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300";
   const activeLinkClasses = "bg-primary-light text-white";
   const inactiveLinkClasses = "text-slate-700 hover:bg-teal-100 hover:text-primary-dark";
 
@@ -47,8 +50,8 @@ const Header: React.FC = () => {
           <NavLink to="/" className="flex-shrink-0">
             <Logo />
           </NavLink>
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+          <div className="hidden lg:block">
+            <div className="ml-10 flex items-baseline space-x-1">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.name}
@@ -58,12 +61,12 @@ const Header: React.FC = () => {
                   {link.name}
                 </NavLink>
               ))}
-              <NavLink to="/appointments" className="ml-4 px-4 py-2 bg-secondary hover:bg-secondary/90 text-white rounded-full shadow-sm font-medium transition-transform duration-200 hover:scale-105">
+              <NavLink to="/appointments" className="ml-3 px-4 py-2 bg-secondary hover:bg-secondary/90 text-white rounded-full shadow-sm font-medium transition-transform duration-200 hover:scale-105 whitespace-nowrap">
                 Book Appointment
               </NavLink>
             </div>
           </div>
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-primary-dark hover:bg-teal-100 focus:outline-none"
@@ -81,7 +84,7 @@ const Header: React.FC = () => {
         </div>
       </nav>
       {isOpen && (
-        <div className="md:hidden" id="mobile-menu">
+        <div className="lg:hidden" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-slate-200">
             {navLinks.map((link) => (
               <NavLink

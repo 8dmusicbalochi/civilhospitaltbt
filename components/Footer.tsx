@@ -19,8 +19,12 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold font-serif mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li><Link to="/about" className="text-teal-200 hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/services" className="text-teal-200 hover:text-white transition-colors">Our Services</Link></li>
               <li><Link to="/departments" className="text-teal-200 hover:text-white transition-colors">Departments</Link></li>
               <li><Link to="/doctors" className="text-teal-200 hover:text-white transition-colors">Find a Doctor</Link></li>
+              <li><Link to="/house-job" className="text-teal-200 hover:text-white transition-colors">House Job</Link></li>
+              <li><Link to="/tender" className="text-teal-200 hover:text-white transition-colors">Tenders</Link></li>
+              <li><Link to="/emails" className="text-teal-200 hover:text-white transition-colors">Email Directory</Link></li>
               <li><Link to="/appointments" className="text-teal-200 hover:text-white transition-colors">Book Appointment</Link></li>
               <li><Link to="/admin/login" className="text-teal-200 hover:text-white transition-colors">Admin Panel</Link></li>
             </ul>

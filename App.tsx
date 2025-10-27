@@ -13,6 +13,10 @@ import ContactPage from './pages/ContactPage';
 import ScrollToTop from './components/ScrollToTop';
 import AdminLogin from './pages/Admin/AdminLogin';
 import AdminDashboard from './pages/Admin/AdminDashboard';
+import OurServicesPage from './pages/OurServicesPage';
+import HouseJobPage from './pages/HouseJobPage';
+import TenderPage from './pages/TenderPage';
+import EmailsPage from './pages/EmailsPage';
 
 /*
   DEPLOYMENT INSTRUCTIONS:
@@ -65,6 +69,10 @@ const App: React.FC = () => {
             <Route path="/appointments" element={<AppointmentsPage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/services" element={<OurServicesPage />} />
+            <Route path="/house-job" element={<HouseJobPage />} />
+            <Route path="/tender" element={<TenderPage />} />
+            <Route path="/emails" element={<EmailsPage />} />
             <Route path="/admin/login" element={<AdminLogin setAuth={setAuth} />} />
             <Route 
               path="/admin/dashboard" 

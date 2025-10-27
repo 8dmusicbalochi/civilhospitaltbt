@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useAnimated } from '../hooks/useAnimated';
 
@@ -39,7 +38,7 @@ const AboutPage: React.FC = () => {
                                 </p>
                             </div>
                             <div>
-                                <img src="https://picsum.photos/id/1018/800/600" alt="Vintage hospital photo" className="rounded-lg shadow-xl" />
+                                <img src="https://picsum.photos/id/1018/800/600" alt="Vintage hospital photo" className="rounded-lg shadow-xl" loading="lazy" decoding="async" width="800" height="600" />
                             </div>
                         </div>
                     </Section>
@@ -56,7 +55,7 @@ const AboutPage: React.FC = () => {
                                 </p>
                             </div>
                             <div className="md:order-1">
-                                <img src="https://picsum.photos/id/30/800/600" alt="Doctor with patient" className="rounded-lg shadow-xl" />
+                                <img src="https://picsum.photos/id/30/800/600" alt="Doctor with patient" className="rounded-lg shadow-xl" loading="lazy" decoding="async" width="800" height="600" />
                             </div>
                         </div>
                     </Section>

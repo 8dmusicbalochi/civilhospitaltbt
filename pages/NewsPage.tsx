@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { NEWS } from '../constants/data';
 import { NewsArticle } from '../types';
@@ -18,7 +17,7 @@ const NewsCard: React.FC<{ article: NewsArticle, index: number }> = ({ article, 
     const [ref, animationClasses] = useAnimated({ delay: index * 100 } as any);
     return (
         <div ref={ref} className={`bg-white rounded-lg shadow-lg overflow-hidden flex flex-col ${animationClasses}`}>
-            <img className="w-full h-56 object-cover" src={article.imageUrl} alt={article.title} />
+            <img className="w-full h-56 object-cover" src={article.imageUrl} alt={article.title} loading="lazy" decoding="async" width="600" height="400" />
             <div className="p-6 flex-grow flex flex-col">
                 <p className="text-sm text-slate-500 mb-2">{article.date}</p>
                 <h3 className="text-xl font-bold font-serif text-primary-dark mb-4 flex-grow">{article.title}</h3>

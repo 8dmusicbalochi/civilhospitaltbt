@@ -29,3 +29,17 @@ export interface Appointment {
   date: string;
   message: string;
 }
+
+export interface Service {
+  name: string;
+  description: string;
+  icon: string; // Lucide icon name
+}
+
+export interface Tender {
+  id: number;
+  title: string;
+  ref: string;
+  closingDate: string;
+  documentUrl: string;
+}

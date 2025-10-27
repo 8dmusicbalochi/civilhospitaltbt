@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../../services/supabaseClient';
+import { supabase, supabaseUrl } from '../../services/supabaseClient';
 import { Appointment, Doctor, NewsArticle } from '../../types';
 
 type AdminTab = 'appointments' | 'doctors' | 'news';
@@ -21,6 +21,16 @@ const AdminDashboard: React.FC<{ setAuth: (isAuth: boolean) => void }> = ({ setA
     const fetchData = useCallback(async () => {
         setLoading(true);
         setError(null);
+        
+        if (supabaseUrl === 'https://example.supabase.co') {
+            setError('Database is not configured. Please update Supabase credentials in services/supabaseClient.ts');
+            setLoading(false);
+            setAppointments([]);
+            setDoctors([]);
+            setNews([]);
+            return;
+        }
+
         try {
             const [appointmentsRes, doctorsRes, newsRes] = await Promise.all([
                 supabase.from('appointments').select('*').order('date', { ascending: false }),
@@ -53,6 +63,10 @@ const AdminDashboard: React.FC<{ setAuth: (isAuth: boolean) => void }> = ({ setA
     };
 
     const handleDelete = async (table: string, id: number) => {
+        if (supabaseUrl === 'https://example.supabase.co') {
+            alert('Database is not configured. Cannot delete item.');
+            return;
+        }
         if (!window.confirm('Are you sure you want to delete this item?')) return;
         
         const { error } = await supabase.from(table).delete().match({ id });
@@ -67,6 +81,10 @@ const AdminDashboard: React.FC<{ setAuth: (isAuth: boolean) => void }> = ({ setA
     
     const handleAddDoctor = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (supabaseUrl === 'https://example.supabase.co') {
+            alert('Database is not configured. Cannot add doctor.');
+            return;
+        }
         const doctorToAdd = {
             ...newDoctor,
             available_days: newDoctor.available_days.split(',').map(day => day.trim()),

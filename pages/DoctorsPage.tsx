@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { supabase } from '../services/supabaseClient';
+import { supabase, supabaseUrl } from '../services/supabaseClient';
 import { DOCTORS as mockDoctors } from '../constants/data';
 import { Doctor } from '../types';
 import { useAnimated } from '../hooks/useAnimated';
@@ -20,7 +20,7 @@ const DoctorCard: React.FC<{ doctor: Doctor, index: number }> = ({ doctor, index
     const [ref, animationClasses] = useAnimated({ delay: index * 100 } as any);
     return (
         <div ref={ref} className={`bg-white rounded-lg shadow-lg overflow-hidden flex flex-col ${animationClasses}`}>
-            <img className="w-full h-80 object-cover" src={doctor.photo_url} alt={`Photo of ${doctor.name}`} />
+            <img className="w-full h-80 object-cover" src={doctor.photo_url} alt={`Photo of ${doctor.name}`} loading="lazy" decoding="async" width="300" height="300" />
             <div className="p-6 flex-grow flex flex-col">
                 <h3 className="text-2xl font-bold font-serif text-primary-dark">{doctor.name}</h3>
                 <p className="text-secondary font-semibold text-lg mb-4">{doctor.specialty}</p>
@@ -43,10 +43,18 @@ const DoctorsPage: React.FC = () => {
 
     useEffect(() => {
         const fetchDoctors = async () => {
+            // Prevent fetch if using placeholder credentials, use mock data instead.
+            if (supabaseUrl === 'https://example.supabase.co') {
+                console.warn("Using mock doctor data because Supabase credentials are not set.");
+                setDoctors(mockDoctors);
+                setLoading(false);
+                return;
+            }
+            
             const { data, error } = await supabase.from('doctors').select('*');
 
             if (error) {
-                console.error('Error fetching doctors:', error);
+                console.error('Error fetching doctors:', error.message);
                 setError('Could not fetch doctor data. Displaying sample data.');
                 setDoctors(mockDoctors);
             } else {
