@@ -22,12 +22,12 @@ const HomePage: React.FC = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative h-[60vh] md:h-[80vh] bg-cover bg-center" style={{ backgroundImage: "url('https://picsum.photos/id/22/1920/1080')" }}>
+      <section className="relative h-[60vh] md:h-[80vh] bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1920&h=1080&fit=crop')" }}>
         <div className="absolute inset-0 bg-primary-dark bg-opacity-60"></div>
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center items-start text-white">
-          <h1 className="text-4xl md:text-6xl font-bold font-serif mb-4 animate-fade-in-down">Compassionate Care, Advanced Medicine</h1>
-          <p className="text-lg md:text-xl max-w-2xl mb-8 animate-fade-in-up">
-            Turbat Civil Hospital is dedicated to providing exceptional healthcare services with a personal touch.
+          <h1 className="text-4xl md:text-6xl font-bold font-serif mb-4 animate-fade-in-down">Welcome to Civil Hospital Turbat</h1>
+          <p className="text-lg md:text-xl max-w-3xl mb-8 animate-fade-in-up">
+            Civil Hospital Turbat is a tertiary, state-of-the-art facility designed to offer the city one of the most innovative treatments and technologies available in the region. Medical professionals from around the world come together to deliver an great patient experience, driven by passion, experience and expertise.
           </p>
           <div className="flex space-x-4">
             <Link to="/appointments" className="px-8 py-3 bg-secondary hover:bg-secondary/90 text-white rounded-full font-semibold transition-transform duration-300 hover:scale-105 shadow-lg">

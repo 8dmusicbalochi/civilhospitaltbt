@@ -14,7 +14,8 @@ const PageHeader: React.FC<{ title: string; subtitle: string }> = ({ title, subt
 );
 
 const TenderRow: React.FC<{ tender: Tender, index: number }> = ({ tender, index }) => {
-    const [ref, animationClasses] = useAnimated({ delay: index * 100 } as any);
+    // FIX: Specified HTMLTableRowElement as the generic type for useAnimated to match the `tr` element's ref.
+    const [ref, animationClasses] = useAnimated<HTMLTableRowElement>({ delay: index * 100 } as any);
     return (
         <tr ref={ref} className={`border-b border-slate-200 ${animationClasses}`}>
             <td className="p-4 text-slate-600">{tender.ref}</td>

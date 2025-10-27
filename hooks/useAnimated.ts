@@ -1,8 +1,10 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-export const useAnimated = (options?: IntersectionObserverInit) => {
-  const ref = useRef<HTMLDivElement>(null);
+// FIX: Made the hook generic to accept different HTML element types for the ref,
+// with HTMLDivElement as the default. Also improved the useEffect logic for safety.
+export const useAnimated = <T extends HTMLElement = HTMLDivElement>(options?: IntersectionObserverInit) => {
+  const ref = useRef<T>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -13,16 +15,17 @@ export const useAnimated = (options?: IntersectionObserverInit) => {
       }
     }, options);
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    const currentElement = ref.current;
+    if (currentElement) {
+      observer.observe(currentElement);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentElement) {
+        observer.unobserve(currentElement);
       }
     };
-  }, [ref, options]);
+  }, [options]);
   
   const animationClasses = `transition-all duration-1000 ease-in-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`;
 
