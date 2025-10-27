@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
@@ -61,9 +60,6 @@ const Header: React.FC = () => {
                   {link.name}
                 </NavLink>
               ))}
-              <NavLink to="/appointments" className="ml-3 px-4 py-2 bg-secondary hover:bg-secondary/90 text-white rounded-full shadow-sm font-medium transition-transform duration-200 hover:scale-105 whitespace-nowrap">
-                Book Appointment
-              </NavLink>
             </div>
           </div>
           <div className="lg:hidden flex items-center">
@@ -95,9 +91,6 @@ const Header: React.FC = () => {
                 {link.name}
               </NavLink>
             ))}
-             <NavLink to="/appointments" className="block w-full text-center mt-4 px-4 py-2 bg-secondary hover:bg-secondary/90 text-white rounded-full shadow-sm font-medium transition-transform duration-200 hover:scale-105">
-                Book Appointment
-              </NavLink>
           </div>
         </div>
       )}

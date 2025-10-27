@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase, supabaseUrl } from '../services/supabaseClient';
@@ -61,6 +60,7 @@ const DoctorsPage: React.FC = () => {
     const [doctors, setDoctors] = useState<Doctor[]>([]);
     const [filteredDoctors, setFilteredDoctors] = useState<Doctor[]>([]);
     const [selectedDepartment, setSelectedDepartment] = useState('All');
+    const [searchQuery, setSearchQuery] = useState('');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -90,20 +90,28 @@ const DoctorsPage: React.FC = () => {
     }, []);
 
     useEffect(() => {
-        if (selectedDepartment === 'All') {
-            setFilteredDoctors(doctors);
-        } else {
-            // This logic attempts to match specialties (e.g., "Cardiologist") with departments (e.g., "Cardiology").
+        let tempDoctors = doctors;
+
+        // Filter by department
+        if (selectedDepartment !== 'All') {
             const departmentSingular = selectedDepartment.endsWith('s')
                 ? selectedDepartment.slice(0, -1).toLowerCase()
                 : selectedDepartment.toLowerCase();
             
-            const filtered = doctors.filter(doctor => 
+            tempDoctors = tempDoctors.filter(doctor => 
                 doctor.specialty.toLowerCase().includes(departmentSingular)
             );
-            setFilteredDoctors(filtered);
         }
-    }, [selectedDepartment, doctors]);
+
+        // Filter by search query
+        if (searchQuery.trim() !== '') {
+            tempDoctors = tempDoctors.filter(doctor =>
+                doctor.name.toLowerCase().includes(searchQuery.toLowerCase())
+            );
+        }
+
+        setFilteredDoctors(tempDoctors);
+    }, [selectedDepartment, searchQuery, doctors]);
 
     return (
         <div>
@@ -114,21 +122,36 @@ const DoctorsPage: React.FC = () => {
                     {error && <p className="text-center text-red-500 bg-red-100 p-4 rounded-md mb-8">{error}</p>}
                     {!loading && (
                         <>
-                            <div className="mb-12 max-w-md mx-auto">
-                                <label htmlFor="department-filter" className="block text-lg font-semibold text-primary-dark mb-2 text-center">
-                                    Filter by Department
-                                </label>
-                                <select
-                                    id="department-filter"
-                                    value={selectedDepartment}
-                                    onChange={(e) => setSelectedDepartment(e.target.value)}
-                                    className="w-full px-4 py-3 border border-slate-300 bg-white rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-light transition-all"
-                                >
-                                    <option value="All">All Departments</option>
-                                    {DEPARTMENTS.map(dept => (
-                                        <option key={dept.name} value={dept.name}>{dept.name}</option>
-                                    ))}
-                                </select>
+                            <div className="mb-12 max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-end">
+                                <div>
+                                    <label htmlFor="doctor-search" className="block text-lg font-semibold text-primary-dark mb-2 text-center md:text-left">
+                                        Search by Name
+                                    </label>
+                                    <input
+                                        id="doctor-search"
+                                        type="text"
+                                        placeholder="e.g., Dr. Aisha Khan"
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                        className="w-full px-4 py-3 border border-slate-300 bg-white rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-light transition-all"
+                                    />
+                                </div>
+                                <div>
+                                    <label htmlFor="department-filter" className="block text-lg font-semibold text-primary-dark mb-2 text-center md:text-left">
+                                        Filter by Department
+                                    </label>
+                                    <select
+                                        id="department-filter"
+                                        value={selectedDepartment}
+                                        onChange={(e) => setSelectedDepartment(e.target.value)}
+                                        className="w-full px-4 py-3 border border-slate-300 bg-white rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-light transition-all"
+                                    >
+                                        <option value="All">All Departments</option>
+                                        {DEPARTMENTS.map(dept => (
+                                            <option key={dept.name} value={dept.name}>{dept.name}</option>
+                                        ))}
+                                    </select>
+                                </div>
                             </div>
                             
                             {filteredDoctors.length > 0 ? (
@@ -139,7 +162,7 @@ const DoctorsPage: React.FC = () => {
                                 </div>
                             ) : (
                                 <div className="text-center py-16">
-                                    <p className="text-xl text-slate-600">No doctors found for the selected department.</p>
+                                    <p className="text-xl text-slate-600">No doctors found matching your criteria.</p>
                                 </div>
                             )}
                         </>

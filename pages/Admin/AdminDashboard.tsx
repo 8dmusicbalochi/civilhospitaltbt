@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase, supabaseUrl } from '../../services/supabaseClient';
@@ -140,10 +139,14 @@ const AdminDashboard: React.FC<{ setAuth: (isAuth: boolean) => void }> = ({ setA
                         <div className="space-y-4">
                             {doctors.length > 0 ? doctors.map(doc => (
                                 <div key={doc.id} className="bg-white p-4 rounded-lg shadow-sm border flex justify-between items-center">
-                                    <div>
-                                        <p className="font-bold text-primary-dark">{doc.name} - <span className="font-normal text-secondary">{doc.specialty}</span></p>
+                                    <div className="flex items-center gap-4">
+                                        <img src={doc.photo_url} alt={doc.name} className="w-16 h-16 rounded-full object-cover border-2 border-slate-200" />
+                                        <div>
+                                            <p className="font-bold text-primary-dark">{doc.name}</p>
+                                            <p className="text-secondary">{doc.specialty}</p>
+                                        </div>
                                     </div>
-                                    <button onClick={() => handleDelete('doctors', doc.id)} className="px-3 py-1 text-sm bg-red-500 hover:bg-red-600 text-white rounded-full">Delete</button>
+                                    <button onClick={() => handleDelete('doctors', doc.id)} className="px-3 py-1 text-sm bg-red-500 hover:bg-red-600 text-white rounded-full flex-shrink-0">Delete</button>
                                 </div>
                             )) : <p>No doctors found.</p>}
                         </div>
@@ -159,6 +162,7 @@ const AdminDashboard: React.FC<{ setAuth: (isAuth: boolean) => void }> = ({ setA
                                 <div>
                                     <p className="font-bold text-primary-dark">{item.title}</p>
                                     <p className="text-sm text-slate-500">{new Date(item.date).toLocaleDateString()}</p>
+
                                 </div>
                                 <button onClick={() => handleDelete('news', item.id)} className="px-3 py-1 text-sm bg-red-500 hover:bg-red-600 text-white rounded-full">Delete</button>
                             </div>
