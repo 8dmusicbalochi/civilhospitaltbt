@@ -13,8 +13,12 @@ const Footer: React.FC = () => {
             </p>
             <div className="space-y-2 text-sm">
               <p className="flex items-center text-teal-200">
+                <i data-lucide="phone-call" className="w-4 h-4 mr-2 flex-shrink-0"></i>
+                <span>Emergency: 0852-111111</span>
+              </p>
+              <p className="flex items-center text-teal-200">
                 <i data-lucide="phone" className="w-4 h-4 mr-2 flex-shrink-0"></i>
-                <span>(9852) 999999999</span>
+                <span>Appointments: 0852-222222</span>
               </p>
               <p className="flex items-center text-teal-200">
                 <i data-lucide="mail" className="w-4 h-4 mr-2 flex-shrink-0"></i>
@@ -54,7 +58,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="mt-8 pt-8 border-t border-teal-700 text-center text-sm text-teal-300">
           <p>&copy; {new Date().getFullYear()} Turbat Civil Hospital. All Rights Reserved.</p>
-          <p className="mt-1">Website designed and developed by <a href="#" className="font-semibold hover:text-white transition-colors">WB Technology</a>.</p>
+          <p className="mt-1">Website designed and developed by <a href="#" className="font-semibold hover:text-white transition-colors">ZTechie</a>.</p>
         </div>
       </div>
     </footer>

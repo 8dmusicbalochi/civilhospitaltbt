@@ -44,7 +44,7 @@ const HomePage: React.FC = () => {
       <div className="bg-red-600 text-white py-4">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-center items-center text-center">
             <LucideIcon name="PhoneCall" className="w-8 h-8 mr-3"/>
-            <span className="font-bold text-xl">Emergency Contact: (123) 456-7890</span>
+            <span className="font-bold text-xl">Emergency Contact: 0852-111111</span>
         </div>
       </div>
 

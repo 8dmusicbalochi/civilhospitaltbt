@@ -69,7 +69,7 @@ const HouseJobPage: React.FC = () => {
                                 For any questions regarding the House Job program, please contact the Human Resources department:
                             </p>
                             <p>
-                                <strong>Email:</strong> <a href="mailto:hr@turbatcivilhospital.com" className="text-secondary">hr@turbatcivilhospital.com</a><br/>
+                                <strong>Email:</strong> <a href="mailto:hr@cht.gov.pk" className="text-secondary">hr@cht.gov.pk</a><br/>
                                 <strong>Phone:</strong> (123) 456-7892
                             </p>
                         </Section>

@@ -25,12 +25,12 @@ const EmailContact: React.FC<{ department: string, email: string, index: number 
 
 const EmailsPage: React.FC = () => {
     const emailList = [
-        { department: 'General Inquiries', email: 'info@turbatcivilhospital.com' },
-        { department: 'Appointments Desk', email: 'appointments@turbatcivilhospital.com' },
-        { department: 'Human Resources (HR)', email: 'hr@turbatcivilhospital.com' },
-        { department: 'Billing Department', email: 'billing@turbatcivilhospital.com' },
-        { department: 'Procurement & Tenders', email: 'procurement@turbatcivilhospital.com' },
-        { department: 'Administration', email: 'admin@turbatcivilhospital.com' },
+        { department: 'General Inquiries', email: 'info@cht.gov.pk' },
+        { department: 'Appointments Desk', email: 'appointments@cht.gov.pk' },
+        { department: 'Human Resources (HR)', email: 'hr@cht.gov.pk' },
+        { department: 'Billing Department', email: 'billing@cht.gov.pk' },
+        { department: 'Procurement & Tenders', email: 'procurement@cht.gov.pk' },
+        { department: 'Administration', email: 'admin@cht.gov.pk' },
     ];
 
     return (

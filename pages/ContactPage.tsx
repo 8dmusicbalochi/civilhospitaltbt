@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const PageHeader: React.FC<{ title: string; subtitle: string }> = ({ title, subtitle }) => (
@@ -28,22 +27,22 @@ const ContactPage: React.FC = () => {
                                 <div className="bg-teal-100 p-3 rounded-full"><i data-lucide="MapPin" className="text-primary"></i></div>
                                 <div>
                                     <h3 className="text-xl font-semibold text-primary-dark">Address</h3>
-                                    <p className="text-slate-600">Main Hospital Road, Turbat, Balochistan, Pakistan</p>
+                                    <p className="text-slate-600">DHQ Hospital Rd, Turbat, Balochistan, Pakistan</p>
                                 </div>
                             </div>
                             <div className="flex items-start space-x-4">
                                  <div className="bg-teal-100 p-3 rounded-full"><i data-lucide="Phone" className="text-primary"></i></div>
                                 <div>
                                     <h3 className="text-xl font-semibold text-primary-dark">Phone</h3>
-                                    <p className="text-slate-600">Emergency: (123) 456-7890</p>
-                                    <p className="text-slate-600">Appointments: (123) 456-7891</p>
+                                    <p className="text-slate-600">Emergency: 0852-111111</p>
+                                    <p className="text-slate-600">Appointments: 0852-222222</p>
                                 </div>
                             </div>
                              <div className="flex items-start space-x-4">
                                  <div className="bg-teal-100 p-3 rounded-full"><i data-lucide="Mail" className="text-primary"></i></div>
                                 <div>
                                     <h3 className="text-xl font-semibold text-primary-dark">Email</h3>
-                                    <p className="text-slate-600">info@turbatcivilhospital.com</p>
+                                    <p className="text-slate-600">info@cht.gov.pk</p>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +82,7 @@ const ContactPage: React.FC = () => {
              {/* Map Section */}
             <div className="w-full h-[400px]">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.300539169641!2d63.04506691515367!3d26.0026363834575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39331e13835f8e5d%3A0x8e8b8b8b8b8b8b8b!2sCivil%20Hospital%20Turbat!5e0!3m2!1sen!2s!4v1672531234567!5m2!1sen!2s"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.311942761895!2d63.06236967561115!3d26.03958197708535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb533c87514123d%3A0x6b803450a8115509!2sCivil%20Hospital%20Turbat!5e0!3m2!1sen!2sus!4v1720549880193!5m2!1sen!2sus"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
