@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { DEPARTMENTS, DOCTORS } from '../constants/data';
@@ -73,7 +74,7 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <img src="https://picsum.photos/id/101/800/600" alt="Hospital Building" className="rounded-lg shadow-2xl" loading="lazy" decoding="async" width="800" height="600"/>
+              <img src="https://images.unsplash.com/photo-1629424213799-4d6f731e3d1a?w=800&h=600&fit=crop&q=80" alt="The modern exterior of Turbat Civil Hospital" className="rounded-lg shadow-2xl" loading="lazy" decoding="async" width="800" height="600"/>
             </div>
             <div>
               <h2 className="text-3xl md:text-4xl font-bold font-serif text-primary-dark mb-4">Welcome to Turbat Civil Hospital</h2>

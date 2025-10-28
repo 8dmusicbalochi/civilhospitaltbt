@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 const PageHeader: React.FC<{ title: string; subtitle: string }> = ({ title, subtitle }) => (
@@ -27,7 +28,7 @@ const ContactPage: React.FC = () => {
                                 <div className="bg-teal-100 p-3 rounded-full"><i data-lucide="MapPin" className="text-primary"></i></div>
                                 <div>
                                     <h3 className="text-xl font-semibold text-primary-dark">Address</h3>
-                                    <p className="text-slate-600">DHQ Hospital Rd, Turbat, Balochistan, Pakistan</p>
+                                    <p className="text-slate-600">Civil Hospital OPD, Turbat, Balochistan, Pakistan</p>
                                 </div>
                             </div>
                             <div className="flex items-start space-x-4">
@@ -80,16 +81,16 @@ const ContactPage: React.FC = () => {
                 </div>
             </div>
              {/* Map Section */}
-            <div className="w-full h-[400px]">
+            <div className="w-full h-[450px]">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.311942761895!2d63.06236967561115!3d26.03958197708535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb533c87514123d%3A0x6b803450a8115509!2sCivil%20Hospital%20Turbat!5e0!3m2!1sen!2sus!4v1720549880193!5m2!1sen!2sus"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2205.02529003738!2d63.06267363063661!3d25.989223408988668!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb8a741e9e213d5%3A0xd1d184d7266d5ebd!2sCivil%20Hospital%20OPD!5e1!3m2!1sen!2sus!4v1761640978917!5m2!1sen!2sus"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
                     allowFullScreen={false}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Turbat Civil Hospital Location"
+                    title="Civil Hospital OPD Location"
                 ></iframe>
             </div>
         </div>
